@@ -93,24 +93,7 @@ const SectionTwo = () => {
         </div>
     )
 }
-const SectionThree = () => {
-    return (
-        <>
-            <div className="row">
-                <div className="col-3">
-                    <p className="fs-bolder">
-                        <b className="">February 2021</b>
-                        &ensp;  &ensp;
-                        <b className="text-muted fa fa-angle-left"></b> &ensp; <b className="text-muted fa fa-angle-right"></b>
-                    </p>
-                </div>
-                <div className="col-3 ms-auto">
-kbhj
-                </div>
-            </div>
-        </>
-    )
-}
+
 
 function TopNav() {
     return (
@@ -118,7 +101,7 @@ function TopNav() {
             <div className="row">
                 <SectionOne />
                 <SectionTwo />
-                <SectionThree />
+                {/* <SectionThree /> */}
             </div>
         </div>
     )

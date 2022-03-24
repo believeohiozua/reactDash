@@ -50,3 +50,52 @@ html, body {
   font-size: 12px;
   padding: 7px 5px;
 }
+
+#month-drop-down-p {
+  border-radius: 30px;
+  border: solid 1px #ccc;
+  padding: 5px;
+  width: 100px;
+  text-align: center;
+}
+
+.vl {
+  border-left: 3px solid blue;
+  height: 500px;
+  position: relative;
+  left: 50%;
+  margin-left: -3px;
+  top: -5px;
+}
+
+#set-overlay {
+  position: fixed;
+  top: 40%;
+  left: 20%;
+  width: 100%;
+  height: 100%;
+}
+
+.card-comp {
+  border-radius: 10px;
+  border: solid 1px #ccc;
+  padding: 7px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.carousel-controls {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+input:focus {
+  background-color: red;
+}
+
+.progress-label {
+  font-size: 15px;
+  position: relative;
+  top: -4px;
+  margin-left: 10px;
+}
