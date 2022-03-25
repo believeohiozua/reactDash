@@ -99,3 +99,26 @@ input:focus {
   top: -4px;
   margin-left: 10px;
 }
+
+#staff-section {
+  height: 500px;
+  overflow: scroll;
+}
+
+#staff-section::-webkit-scrollbar {
+  width: 3px;
+}
+
+#sub-nav-sec {
+  border-radius: 20px;
+  border: solid 1px #ccc;
+  background-color: #f2f2f2;
+}
+
+.nav-text-dark {
+  color: rgb(0, 0, 0);
+}
+
+.nav-text-dark:hover {
+  color: blue;
+}

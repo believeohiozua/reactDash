@@ -5,14 +5,19 @@ const caruselPrevBtn = (id) => {
     let btn = document.getElementById(id);
     btn.click();
 }
-const showLine = (lineid) => {
+const showLine = (lineid, i) => {
     let getLine = document.getElementById(lineid);
     getLine.className = 'd-block';
+    let getDay = document.getElementById(`day-${i + 1}`);
+    getDay.className = 'bg-primary text-white rounded';
 }
-const removeLine = (lineid) => {
+const removeLine = (lineid, i) => {
     let getLine = document.getElementById(lineid);
     getLine.className = 'd-none';
+    let getDay = document.getElementById(`day-${i + 1}`);
+    getDay.className = '';
 }
+
 const SectionThree = ({ month }) => {
 
     return (
@@ -46,7 +51,10 @@ const SectionThree = ({ month }) => {
 
 function CaruselSection() {
 
-
+    var date = new Date().toLocaleDateString("en-US", {
+        "year": "numeric",
+        "month": "numeric"
+    });
     return (
         <>
 
@@ -59,8 +67,8 @@ function CaruselSection() {
                         <div class="row">
                             <div className="col-12" id="set-overlay">
                                 <div className="row">
-                                    <div className="col-2">
-                                        {Array.from({ length: 4 }, (_, i) =>
+                                    <section id="staff-section" className="col-2">
+                                        {Array.from({ length: 10 }, (_, i) =>
                                             <div className="card-comp my-3">
                                                 <div className="row">
                                                     <div className="col-3 text-end my-auto">
@@ -77,7 +85,7 @@ function CaruselSection() {
                                                 </div>
                                             </div>
                                         )}
-                                    </div>
+                                    </section>
 
                                     <div className="col-10">
 
@@ -104,23 +112,23 @@ function CaruselSection() {
                                 <table class="table table table-borderless">
                                     <thead className='border-0'>
                                         <tr className="text-center">
-                                            <td><span className="text-muted">M</span>1</td>
-                                            <td><span className="text-muted">T</span>2</td>
-                                            <td><span className="text-muted">W</span>3</td>
-                                            <td><span className="text-muted">T</span>4</td>
-                                            <td><span className="text-muted">F</span>5</td>
-                                            <td><span className="text-muted">S</span>T6</td>
-                                            <td><span className="text-muted">S</span>7</td>
-                                            <td><span className="text-muted">M</span>8</td>
-                                            <td><span className="text-muted">T</span>9</td>
-                                            <td><span className="text-muted">W</span>10</td>
-                                            <td><span className="text-muted">T</span>11</td>
-                                            <td><span className="text-muted">F</span>12</td>
-                                            <td><span className="text-muted">S</span>13</td>
-                                            <td><span className="text-muted">S</span>14</td>
-                                            <td><span className="text-muted">M</span>15</td>
-                                            <td><span className="text-muted">T</span>16</td>
-                                            <td><span className="text-muted">W</span>17</td>
+                                            <td id="day-1"><span className="text-muted">M</span>1</td>
+                                            <td id="day-2"><span className="text-muted">T</span>2</td>
+                                            <td id="day-3"><span className="text-muted">W</span>3</td>
+                                            <td id="day-4"><span className="text-muted">T</span>4</td>
+                                            <td id="day-5"><span className="text-muted">F</span>5</td>
+                                            <td id="day-6"><span className="text-muted">S</span>T6</td>
+                                            <td id="day-7"><span className="text-muted">S</span>7</td>
+                                            <td id="day-8"><span className="text-muted">M</span>8</td>
+                                            <td id="day-9"><span className="text-muted">T</span>9</td>
+                                            <td id="day-10"><span className="text-muted">W</span>10</td>
+                                            <td id="day-11"><span className="text-muted">T</span>11</td>
+                                            <td id="day-12"><span className="text-muted">F</span>12</td>
+                                            <td id="day-13"><span className="text-muted">S</span>13</td>
+                                            <td id="day-14"><span className="text-muted">S</span>14</td>
+                                            <td id="day-15"><span className="text-muted">M</span>15</td>
+                                            <td id="day-16"><span className="text-muted">T</span>16</td>
+                                            <td id="day-17"><span className="text-muted">W</span>17</td>
                                         </tr>
                                     </thead>
                                     <tbody className="">
@@ -130,8 +138,8 @@ function CaruselSection() {
                                                     {i > 4 ?
                                                         <>
                                                             <td className="border-start border-end text-center vh-100"
-                                                                onMouseEnter={() => showLine(`table-item-${i}`)}
-                                                                onMouseLeave={() => removeLine(`table-item-${i}`)}
+                                                                onMouseEnter={() => showLine(`table-item-${i}`, i)}
+                                                                onMouseLeave={() => removeLine(`table-item-${i}`, i)}
                                                             >
 
                                                                 <div className="d-none" id={`table-item-${i}`}>
