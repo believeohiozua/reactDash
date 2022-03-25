@@ -45,6 +45,7 @@ function CaruselSection() {
         m: moment(moment().add(0, 'd').toDate(), 'YYYY/MM/DD').format('MMMM'),
         y: moment(moment().add(0, 'd').toDate(), 'YYYY/MM/DD').format('YYYY')
     });
+    const [staffWork, setStaffWork] = React.useState([1, 4, 6, 7, 8, 2, 3, 5, 8, 3]);
 
     const showLine = (lineid, i, item) => {
         setDmonth({
@@ -53,6 +54,9 @@ function CaruselSection() {
             m: item.m,
             y: item.y
         })
+        const numbers = Array(10).fill().map((_, index) => index + 1);
+        numbers.sort(() => Math.random() - 0.5);
+        setStaffWork(numbers.slice(0, 10));
         let getLine = document.getElementById(lineid);
         getLine.className = 'd-block';
         let getDay = document.getElementById(`day-${i + 1}`);
@@ -91,45 +95,46 @@ function CaruselSection() {
                         <div class="row">
                             <div className="col-12" id="set-overlay">
                                 <div className="row">
-                                    <section id="staff-section" className="col-2">
-                                        {Array.from({ length: 10 }, (_, i) =>
-                                            <div className="card-comp my-3">
-                                                <div className="row">
-                                                    <div className="col-3 text-end my-auto">
-                                                        <img src="https://avatars.githubusercontent.com/u/98681?v=4"
-                                                            className="img-fluid rounded-circle" alt="..." />
-                                                    </div>
-                                                    <div className="col-7 text-start my-auto">
-                                                        <p className="p-0 m-0">Finana A.</p>
-                                                        <small className="text-muted">UX Designer</small>
-                                                    </div>
-                                                    <div className="col-2 my-auto">
-                                                        <i class="fa fa-ellipsis-v text-muted" aria-hidden="true"></i>
+                                    <section id="staff-section" className="">
+                                        {/* {Array.from({ length: 10 }, (_, i) => */}
+                                        {staffWork.map((item, i) => {
+                                            return (<div className="row" key={i}>
+                                                <div className="card-comp my-3 col-2">
+                                                    <div className="row">
+                                                        <div className="col-3 text-end my-auto">
+                                                            <img src="https://avatars.githubusercontent.com/u/98681?v=4"
+                                                                className="img-fluid rounded-circle" alt="..." />
+                                                        </div>
+                                                        <div className="col-7 text-start my-auto">
+                                                            <p className="p-0 m-0">Finana A.</p>
+                                                            <small className="text-muted">UX Designer</small>
+                                                        </div>
+                                                        <div className="col-2 my-auto">
+                                                            <i class="fa fa-ellipsis-v text-muted" aria-hidden="true"></i>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        )}
+                                                <div className="col-10">
+                                                    <div class="progress mt-4" style={{ height: "40px", width: "40%", borderRadius: '50px' }}>
+                                                        <div class={`progress-bar ${item < 2.5 ? "bg-danger" : item < 5 ? "bg-warning" : item < 7.5 ? "bg-info" : item > 7.5 ? "bg-success" : ""}`}
+                                                            role="progressbar"
+                                                            style={{ width: `${item * 10}%`, borderRadius: '50px' }}
+                                                            aria-valuenow={`${item * 10}%`} aria-valuemin="0"
+                                                            aria-valuemax="100">
+                                                            <div className="my-auto text-start ps-3">
+                                                                <i class="fa fa-dot-circle-o fs-4" aria-hidden="true">
+                                                                    <small className="progress-label"> Flow Swift transfer</small>
+                                                                </i>
+                                                            </div>
+                                                        </div>
+                                                        <p className="my-auto text-end col-5 text-danger">{item * 10}%</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>)
+                                        })}
                                     </section>
 
-                                    <div className="col-10">
-
-                                        <div class="progress mt-4" style={{ height: "40px", width: "40%", borderRadius: '50px' }}>
-                                            <div class="progress-bar bg-danger"
-                                                role="progressbar"
-                                                style={{ width: "40%", borderRadius: '50px' }}
-                                                aria-valuenow="40" aria-valuemin="0"
-                                                aria-valuemax="100">
-                                                <div className="my-auto text-start ps-3">
-                                                    <i class="fa fa-dot-circle-o fs-4" aria-hidden="true">
-                                                        <small className="progress-label"> Flow Swift transfer</small>
-                                                    </i>
-                                                </div>
-                                            </div>
-                                            <p className="my-auto text-end col-5 text-danger">40%</p>
-                                        </div>
-
-
-                                    </div>
                                 </div>
                             </div>
                             <div className="col-12">
