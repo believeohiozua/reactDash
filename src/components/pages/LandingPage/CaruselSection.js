@@ -8,7 +8,6 @@ const caruselPrevBtn = (id) => {
 
 
 const SectionThree = ({ month }) => {
-
     return (
         <>
             <div className="row">
@@ -46,6 +45,7 @@ function CaruselSection() {
         y: moment(moment().add(0, 'd').toDate(), 'YYYY/MM/DD').format('YYYY')
     });
     const [staffWork, setStaffWork] = React.useState([1, 4, 6, 7, 8, 2, 3, 5, 8, 3]);
+
 
     const showLine = (lineid, i, item) => {
         setDmonth({
@@ -85,18 +85,16 @@ function CaruselSection() {
     console.log(dDate);
     return (
         <>
-
-
-
             <div id="carouselExampleDark" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
                         <SectionThree month={dMonth} />
                         <div class="row">
+
+
                             <div className="col-12" id="set-overlay">
                                 <div className="row">
                                     <section id="staff-section" className="">
-                                        {/* {Array.from({ length: 10 }, (_, i) => */}
                                         {staffWork.map((item, i) => {
                                             return (<div className="row" key={i}>
                                                 <div className="card-comp my-3 col-2">
@@ -123,7 +121,7 @@ function CaruselSection() {
                                                             aria-valuemax="100">
                                                             <div className="my-auto text-start ps-3">
                                                                 <i class="fa fa-dot-circle-o fs-4" aria-hidden="true">
-                                                                    <small className="progress-label"> Flow Swift transfer</small>
+                                                                    <small key={i} className="progress-label">Flow Swift transfer</small>
                                                                 </i>
                                                             </div>
                                                         </div>
@@ -137,6 +135,8 @@ function CaruselSection() {
 
                                 </div>
                             </div>
+
+
                             <div className="col-12">
                                 <table class="table table table-borderless">
                                     <thead className='border-0'>
@@ -205,9 +205,8 @@ function CaruselSection() {
                 </button>
             </div>
 
-
         </>
     )
 }
 
-export default CaruselSection
+export default CaruselSection;
